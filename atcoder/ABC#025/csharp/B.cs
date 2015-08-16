@@ -1,10 +1,12 @@
 using System;
 using System.Linq;
 
-class Program {
-    public static void Main() {
+class Program
+{
+    public static void Main()
+    {
         var NAB = Console.ReadLine()
-            .Split(new []{ ' ' })
+            .Split(new[] { ' ' })
             .Select(x => int.Parse(x))
             .ToList();
 
@@ -14,8 +16,9 @@ class Program {
 
         var X = 0;
 
-        for (int i = 0; i < N; i++) {
-            var input = Console.ReadLine().Split(new []{ ' ' }).ToList();
+        for (int i = 0; i < N; i++)
+        {
+            var input = Console.ReadLine().Split(new[] { ' ' }).ToList();
 
             var s = input[0];
             var d = int.Parse(input[1]);
@@ -30,12 +33,18 @@ class Program {
 
         var res = "";
 
-        if (X == 0) {
+        if (X == 0)
+        {
             res = X.ToString();
-        } else {
-            if (X >= 1) {
+        }
+        else
+        {
+            if (X >= 1)
+            {
                 res = "East " + Math.Abs(X);
-            } else if (X <= -1) {
+            }
+            else if (X <= -1)
+            {
                 res = "West " + Math.Abs(X);
             }
         }

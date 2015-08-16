@@ -1,7 +1,9 @@
 using System;
 
-class Program {
-    public static void Main() {
+class Program
+{
+    public static void Main()
+    {
         var S = Console.ReadLine();
         var N = int.Parse(Console.ReadLine()) - 1;
 

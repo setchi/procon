@@ -1,8 +1,10 @@
 using System;
 using System.Linq;
 
-class Program {
-    public static void Main() {
+class Program
+{
+    public static void Main()
+    {
         var N = int.Parse(Console.ReadLine());
 
         var S = Enumerable.Range(0, N)
