@@ -25,7 +25,7 @@ class Program
 
         for (int i = 0; i < N; i++)
         {
-            if (a.Skip(i).Take(N - i).Sum() != (N - i) * unitNum)
+            if (a.Skip(i).Sum() != (N - i) * unitNum)
             {
                 bridgeCount++;
             }
