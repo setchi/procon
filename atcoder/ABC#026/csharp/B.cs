@@ -12,7 +12,7 @@ class Program
           .Select(r => r * r)
           .OrderByDescending(r => r)
           .Select((r, i) => i % 2 == 0 ? r : -r)
-          .Aggregate((a, c) => a + c)
+          .Sum()
           * Math.PI;
 
         Console.WriteLine(S);
