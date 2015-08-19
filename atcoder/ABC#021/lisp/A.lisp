@@ -1,0 +1,13 @@
+(defun solve (n l)
+  (if (= n 0)
+      (cons (length l) l)
+      (let ((d (cond ((<= 8 n) 8)
+                     ((<= 4 n) 4)
+                     ((<= 2 n) 2)
+                     (t 1))))
+        (solve (- n d) (cons d l)))))
+
+(defun main ()
+  (loop for i in (solve (read) ())
+        do (format t "~a~%" i)))
+(main)
