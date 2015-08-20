@@ -8,6 +8,5 @@
         (solve (- n d) (cons d l)))))
 
 (defun main ()
-  (loop for i in (solve (read) ())
-        do (format t "~a~%" i)))
+  (format t "~{~a~%~}" (solve (read) ())))
 (main)
