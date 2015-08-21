@@ -1,5 +1,5 @@
 (defun solve (n l)
-  (if (= n 0)
+  (if (zerop n)
       (cons (length l) l)
       (let ((d (cond ((<= 8 n) 8)
                      ((<= 4 n) 4)
