@@ -23,9 +23,9 @@
   (let ((f (make-array `(3 3) :initial-contents `((0 0 0) (0 0 0) (0 0 0))))
         (b (make-array `(2 3) :initial-contents (loop repeat 2 collect `(,(read),(read),(read)))))
         (c (make-array `(3 2) :initial-contents (loop repeat 3 collect `(,(read),(read))))))
-    (let ((sum (loop for i from 0 to 1 sum
-                     (loop for j from 0 to 2
-                           sum (+ (aref b i j) (aref c j i))))))
+    (let ((sum (loop for i from 0 to 1
+                     sum (loop for j from 0 to 2
+                               sum (+ (aref b i j) (aref c j i))))))
       (let ((chokudai (solve f b c sum 0)))
         (format t "~a~%~a~%" chokudai (- sum chokudai))))))
 (main)
