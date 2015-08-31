@@ -5,4 +5,4 @@
         (loop for i from 0 to N
               count (/= (reduce #'+ (nthcdr i a)) (* (floor a-sum N) (- N i)))))))
 
-(format t "~a~&" (solve (read)))
+(format t "~a~%" (solve (read)))
