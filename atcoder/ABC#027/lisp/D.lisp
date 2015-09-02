@@ -1,0 +1,11 @@
+(defun solve (s)
+  (let ((amount 0) lst)
+    (dolist (i (coerce s `list))
+      (cond ((char= i #\+) (incf amount))
+            ((char= i #\-) (decf amount))
+            ((char= i #\M) (push amount lst))))
+    (let ((a (make-array (length lst) :initial-contents (sort lst #'<))))
+      (loop for i from 0 to (1- (floor (length a) 2))
+            sum (- (aref a (- (length a) 1 i)) (aref a i))))))
+
+(format t "~a~%" (solve (read-line)))
