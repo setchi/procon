@@ -1,0 +1,26 @@
+(defun get-lattice (pos h)
+  (let* ((key (logxor (svref pos 0) (ash (svref pos 1) 18)))
+         (a (gethash key h)))
+    (if a a (setf (gethash key h) (vector () () () () () () () ())))))
+
+(defun move (pos c h)
+  (let ((a (get-lattice pos h))
+        (urdl (* 2 (position c "URDL"))))
+    (flet ((getp (i) (if (svref a i) (svref a i)
+                         (+ (svref pos (mod i 2)) (svref #(0 1 1 0 0 -1 -1 0) i)))))
+          (loop for i from 0 to 6 by 2
+                do (let ((lat (get-lattice (vector (getp i) (getp (1+ i))) h)))
+                     (setf (svref lat (mod (+ i 4) 8)) (getp (mod (+ i 4) 8)))
+                     (setf (svref lat (mod (+ i 5) 8)) (getp (mod (+ i 5) 8)))))
+          (vector (getp urdl) (getp (1+ urdl))))))
+
+(defun solve (n)
+  (let ((pos #(0 0))
+        (h (make-hash-table)))
+    (dotimes (i n)
+      (setf pos (move pos (read-char) h)))
+    (coerce pos `list)))
+
+(defun main ()
+  (format t "~{~A~^ ~}~%" (solve (read))))
+(main)
